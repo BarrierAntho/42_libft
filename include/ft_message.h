@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:41:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/29 19:00:34 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/03/30 11:32:27 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,34 @@
 /***FILE DESCRIPTOR***/
 # define ERR_FD "File descriptor not defined"
 
-int	ft_error(int fd, char *f, char *s, char *data);
-int	ft_warning(int fd, char *f, char *s, char *data);
+/**
+ * @brief Print error message on stderr in RED color according to 
+ * the following structure
+ * 	Error\n
+ *	Function: xxxx
+ *	Data string: xxxx
+ *	Data character: xxxx
+ *	Message: xxxx
+ *
+ * @param int fd: File descriptor | char *f: Function where the error is
+ * char *s: Message to print | char *data: Data of the error
+ * @return int | >= 1: Total of printed characters
+ */
+int	ft_error(char *f, char *data, char c, char *msg);
+
+/**
+ * @brief Print warning message on stdout in YELLOW color according to
+ * the following structure
+ * 	Warning\n
+ *	Function: xxxx
+ *	Data string: xxxx
+ *	Data character: xxxx
+ *	Message: xxxx
+ *
+ * @param int fd: File descriptor | char *f: Function where the error is
+ * char *s: Message to print | char *data: Data of the error
+ * @return int | >= 1: Total of printed characters
+ */
+int	ft_warning(char *f, char *data, char c, char *msg);
 
 #endif

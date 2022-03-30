@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:49:53 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/28 15:33:52 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/03/30 15:36:28 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,33 @@ int	ft_isascii(int c);
 int	ft_isdigit(int c);
 
 /**
+ * @brief Return int if the character is '+' or '-' polarity sign
+ *
+ * @param int c: Character to be checked
+ * @return int | 1: is true, 0: is false
+ */
+int	ft_ispolarity(int c);
+
+/**
  * @brief Return int if the character is printable
  *
  * @param int c: Character to be checked
  * @return int | ascii decimal: is true, 0: is false
  */
 int	ft_isprint(int c);
+
+/**
+ * @brief Return int if the character is space
+ * 	horizontal tab: '\t'
+ * 	new line: '\n'
+ * 	vertical tab: '\v'
+ * 	form feed: '\f'
+ * 	carriage ret: '\r'
+ * 	space: ' '
+ *
+ * @param int c: Character to be checked
+ * @return int | ascii decimal: is true, 0: is false
+ */
+int	ft_isspace(int c);
 
 #endif

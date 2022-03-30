@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:27:05 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/28 17:56:06 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/03/30 08:19:53 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
  *
  * @param int fd: File descriptor | const char *s: String to be printed |
  * ...: variable argument
- * %c: character
- * %s: string
- * %p: pointer
- * %d: decimal
- * %u: unsigned int
- * %x: hexadecimal with prefix "0x"
- * %X: hexadecimal with prefix "0X"
- * %%: percentage character
+ * 	%c: character
+ * 	%s: string
+ * 	%p: pointer
+ * 	%d: decimal
+ * 	%u: unsigned int
+ * 	%x: hexadecimal with prefix "0x"
+ * 	%X: hexadecimal with prefix "0X"
+ * 	%%: percentage character
  * @return int | >= 0: total of printed characters
  */
 int	ft_printf(int fd, const char *s, ...);

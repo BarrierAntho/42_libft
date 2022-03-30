@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:25:47 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/29 18:57:17 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/03/30 11:35:40 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_printf(int fd, const char *s, ...)
 	va_list		va;
 
 	if (fd < 0)
-		return (ft_error(2, "ft_printf", ERR_FD, "fd"));
+		return (ft_error("ft_printf", "fd", 0, ERR_FD));
 	res = 0;
 	va_start(va, s);
 	while (*s)

@@ -9,7 +9,7 @@ DFLAGS		:=	-MMD
 
 IPATH		:=	include
 OPATH		:=	obj
-DEPAPTH		:=	dep
+DPATH		:=	dep
 
 # SOURCES FOLDER
 PRINTFPATH	:=	ft_printf
@@ -21,26 +21,82 @@ MSGPATH		:=	message
 
 RM		:=	rm -rf
 
-HEADERS		:=	$(wildcard ${IPATH}/*.h)
-PRINTF_SRCS	:=	$(wildcard ${PRINTFPATH}/*.c)
-CHAR_SRCS	:=	$(wildcard ${CHARPATH}/*.c)
-STR_SRCS	:=	$(wildcard ${STRPATH}/*.c)
-PUT_SRCS	:=	$(wildcard ${PUTPATH}/*.c)
-MSG_SRCS	:=	$(wildcard ${MSGPATH}/*.c)
+#TIPS: List in the correct form 'ls -1 <directory> | sed's/$/\\/g' 
+INCLUDES	:=	ft_chartype.h\
+			ft_color.h\
+			ft_libft.h\
+			ft_message.h\
+			ft_printf.h\
+			ft_put.h\
+			ft_string.h
 
-OBJS		=	${PRINTF_SRCS:.c=.o}\
-			${CHAR_SRCS:.c=.o}\
-			${STR_SRCS:.c=.o}\
-			${PUT_SRCS:.c=.o}\
-			${MSG_SRCS:.c=.o}
+PRINTF_SRCS	:=	ft_printf_arg.c\
+			ft_printf.c\
+			ft_printf_putc.c\
+			ft_printf_puts.c
+
+CHAR_SRCS	:=	ft_isalnum.c\
+			ft_isalpha.c\
+			ft_isascii.c\
+			ft_isdigit.c\
+			ft_ispolarity.c\
+			ft_isprint.c\
+			ft_isspace.c
+
+STR_SRCS	:=	ft_index.c\
+			ft_rindex.c\
+			ft_strchr.c\
+			ft_strlen.c\
+			ft_strrchr.c
+
+PUT_SRCS	:=	ft_putchar_fd.c\
+			ft_putstr_fd.c
+
+MSG_SRCS	:=	ft_error.c\
+			ft_warning.c
+
+
+OBJS		=	${addprefix ${OPATH}/, ${PRINTF_SRCS:.c=.o}}\
+			${addprefix ${OPATH}/, ${CHAR_SRCS:.c=.o}}\
+			${addprefix ${OPATH}/, ${STR_SRCS:.c=.o}}\
+			${addprefix ${OPATH}/, ${PUT_SRCS:.c=.o}}\
+			${addprefix ${OPATH}/, ${MSG_SRCS:.c=.o}}
+
+#DEPS		=	${addprefix ${DPATH}/, ${PRINTF_SRCS:.c=.d}}\
+			${addprefix ${DPATH}/, ${CHAR_SRCS:.c=.d}}\
+			${addprefix ${DPATH}/, ${STR_SRCS:.c=.d}}\
+			${addprefix ${DPATH}/, ${PUT_SRCS:.c=.d}}\
+			${addprefix ${DPATH}/, ${MSG_SRCS:.c=.d}}
+
+vpath %.h ${IPATH}
+vpath %.c ${PRINTFPATH}\
+	${CHARPATH}\
+	${STRPATH}\
+	${PUTPATH}\
+	${MSGPATH}
+vpath %.o ${OPATH}
+#vpath %.d ${DPATH}
 
 all:			${NAME}
 
-%.o:			%.c ${HEADERS}
+${OPATH}/%.o:			%.c ${INCLUDES}
 			${CC} ${CFLAGS} ${CFLAGSADD} -I ${IPATH} -c $< -o $@
 
-${NAME}:		${OBJS}
+#${DPATH}/%.d:			%.c ${INCLUDES}
+#			${CC} ${CFLAGS} ${CFLAGSADD} -I ${IPATH} -c $< ${DFLAGS} -o $@
+
+${NAME}:		${OBJS} ${DEPS}
 			ar rc ${NAME} ${OBJS}
+
+${OBJS}:		| ${OPATH}
+
+${OPATH}:
+			mkdir -p ${OPATH}
+
+#${DEPS}:		| ${DPATH}
+
+#${DPATH}:
+#			mkdir -p ${DPATH}
 
 clean:
 			${RM} ${OBJS}
