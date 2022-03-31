@@ -18,6 +18,7 @@ CHARPATH	:=	chartype
 STRPATH		:=	string
 PUTPATH		:=	put
 MSGPATH		:=	message
+CONVPATH	:=	convert
 
 RM		:=	rm -rf
 
@@ -36,12 +37,16 @@ PRINTF_SRCS	:=	ft_printf_arg.c\
 			ft_printf_puts.c
 
 CHAR_SRCS	:=	ft_isalnum.c\
-			ft_isalpha.c\
-			ft_isascii.c\
-			ft_isdigit.c\
-			ft_ispolarity.c\
-			ft_isprint.c\
-			ft_isspace.c
+				ft_isalpha.c\
+				ft_isascii.c\
+				ft_isblank.c\
+				ft_isdigit.c\
+				ft_islower.c\
+				ft_ispolarity.c\
+				ft_isprint.c\
+				ft_ispunct.c\
+				ft_isspace.c\
+				ft_isupper.c
 
 STR_SRCS	:=	ft_index.c\
 			ft_rindex.c\
@@ -55,25 +60,29 @@ PUT_SRCS	:=	ft_putchar_fd.c\
 MSG_SRCS	:=	ft_error.c\
 			ft_warning.c
 
+CONVSRCS	:=	ft_atoi.c
 
 OBJS		=	${addprefix ${OPATH}/, ${PRINTF_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${CHAR_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${STR_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${PUT_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${MSG_SRCS:.c=.o}}
+			${addprefix ${OPATH}/, ${MSG_SRCS:.c=.o}}\
+			${addprefix ${OPATH}/, ${CONV_SRCS:.c=.o}}
 
 #DEPS		=	${addprefix ${DPATH}/, ${PRINTF_SRCS:.c=.d}}\
 			${addprefix ${DPATH}/, ${CHAR_SRCS:.c=.d}}\
 			${addprefix ${DPATH}/, ${STR_SRCS:.c=.d}}\
 			${addprefix ${DPATH}/, ${PUT_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${MSG_SRCS:.c=.d}}
+			${addprefix ${DPATH}/, ${MSG_SRCS:.c=.d}}\
+			${addprefix ${DPATH}/, ${CONV_SRCS:.c=.d}}
 
 vpath %.h ${IPATH}
 vpath %.c ${PRINTFPATH}\
 	${CHARPATH}\
 	${STRPATH}\
 	${PUTPATH}\
-	${MSGPATH}
+	${MSGPATH}\
+	${CONVPATH}
 vpath %.o ${OPATH}
 #vpath %.d ${DPATH}
 

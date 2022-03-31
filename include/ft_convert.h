@@ -6,12 +6,15 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:02:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/30 15:08:15 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/03/31 11:51:54 by antho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CONVERT_H
 # define FT_CONVERT_H
 
+# include "ft_chartype.h"
+
+int	ft_atoi(const char *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:49:53 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/30 15:36:28 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/03/31 10:28:03 by antho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,30 @@ int	ft_isalpha(int c);
 int	ft_isascii(int c);
 
 /**
+ * @brief Return int if the character is blank
+ * 	horizontal tab: '\t'
+ * 	space: ' '
+ *
+ * @param int c: Character to be checked
+ * @return int | ascii decimal: is true, 0: is false
+ */
+int	ft_isblank(int c);
+
+/**
  * @brief Return int if the character is numeric [0-9]
  *
  * @param int c: Character to be checked
  * @return int | 1: is true, 0: is false
  */
 int	ft_isdigit(int c);
+
+/**
+ * @brief Return int if the character is lower case [a-z]
+ *
+ * @param int c: Character to be checked
+ * @return int | 1: is true, 0: is false
+ */
+int	ft_islower(int c);
 
 /**
  * @brief Return int if the character is '+' or '-' polarity sign
@@ -63,6 +81,20 @@ int	ft_ispolarity(int c);
 int	ft_isprint(int c);
 
 /**
+ * @brief Return int if the character is punct
+ * '!' '"' '#' '$' '%' '&' ''' '(' ')' '*'
+ * '+' ',' '-' '.' '/'
+ * ':' ';' '<' '=' '>' '?' '@'
+ * '[' '\' ']' '^' '_'
+ * '`'
+ * '{' '|' '}' '~'
+ *
+ * @param int c: Character to be checked
+ * @return int | ascii decimal: is true, 0: is false
+ */
+int	ft_ispunct(int c);
+
+/**
  * @brief Return int if the character is space
  * 	horizontal tab: '\t'
  * 	new line: '\n'
@@ -75,5 +107,13 @@ int	ft_isprint(int c);
  * @return int | ascii decimal: is true, 0: is false
  */
 int	ft_isspace(int c);
+
+/**
+ * @brief Return int if the character is upper case [A-Z]
+ *
+ * @param int c: Character to be checked
+ * @return int | 1: is true, 0: is false
+ */
+int	ft_isupper(int c);
 
 #endif

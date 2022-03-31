@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:00:42 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/30 11:15:41 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/03/31 11:49:31 by antho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "ft_chartype.h"
 # include "ft_color.h"
+# include "ft_convert.h"
 # include "ft_message.h"
 # include "ft_printf.h"
 # include "ft_put.h"
