@@ -51,8 +51,10 @@ CHAR_SRCS	:=	ft_isalnum.c\
 STR_SRCS	:=	ft_index.c\
 			ft_rindex.c\
 			ft_strchr.c\
+			ft_strcpy.c\
 			ft_strlen.c\
-			ft_strrchr.c
+			ft_strrchr.c\
+			ft_strtrim.c
 
 PUT_SRCS	:=	ft_putchar_fd.c\
 			ft_putstr_fd.c
@@ -60,7 +62,9 @@ PUT_SRCS	:=	ft_putchar_fd.c\
 MSG_SRCS	:=	ft_error.c\
 			ft_warning.c
 
-CONVSRCS	:=	ft_atoi.c
+CONV_SRCS	:=	ft_atoi.c\
+			ft_atol.c\
+			ft_atoll.c
 
 OBJS		=	${addprefix ${OPATH}/, ${PRINTF_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${CHAR_SRCS:.c=.o}}\
@@ -128,5 +132,7 @@ norme:
 			norminette ${PUTPATH}
 			@echo ${SEP_P}
 			norminette ${MSGPATH}
+			@echo ${SEP_P}
+			norminette ${CONVPATH}
 
 .PHONY:			all clean fclean re norme

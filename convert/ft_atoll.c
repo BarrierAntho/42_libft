@@ -1,6 +1,6 @@
 #include "../include/ft_convert.h"
 
-int	ft_atoi(const char *s)
+long long	ft_atoll(const char *s)
 {
 	unsigned long long	n;
 	int					sign;
@@ -22,5 +22,5 @@ int	ft_atoi(const char *s)
 		n = (n * 10) + (unsigned long long)(s[i] - '0');
 		i++;
 	}
-	return (sign * (int)n);
+	return (sign * (long long)n);
 }
