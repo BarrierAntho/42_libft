@@ -1,47 +1,32 @@
 #include "../include/ft_string.h"
 
-static size_t	ft_strtrim_len(const char *s, size_t *start)
-{
-	size_t	res;
-	size_t	len_s;
-
-	res = 0;
-	*start = 0;
-	len_s = ft_strlen(s);
-	if ((int)len_s <= 0)
-		return (0);
-	while (s[*start] && ft_isspace(s[*start]))
-		*start = *start + 1;
-	while (s[len_s] && ft_isspace(s[len_s]))
-		len_s--;
-	res = len_s - *start + 1;
-	return (res);
-}
-
 char	*ft_strtrim(const char *s)
 {
 	char	*new;
-	size_t	i;
-	size_t	len_s;
+	char	*start;
+	char	*end;
 	int		j;
 
-	len_s = ft_strtrim_len(s, &i);
-	new = (char *)malloc(sizeof(char) * (len_s + 1));
+	if (!s)
+		return (NULL);
+	start = ft_strchrset_exclude(s, "\t\n\v\f\r ");
+	end = ft_strrchrset_exclude(s, "\t\n\v\f\r ");
+	new = (char *)malloc(sizeof(char) * (ft_strlen_addr(start, end) + 1));
 	if (!new)
-		return (0);
+		return (NULL);
 	j = 0;
-	while (i < len_s)
+	while (start && end && start <= end)
 	{
-		new[j] = s[i];
-		if (ft_isspace(s[i]))
+		new[j] = *start;
+		if (ft_isspace(*start))
 		{
 			new[j] = ' ';
-			i++;
-			while (ft_isspace(s[i]))
-				i++;
+			start++;
+			while (ft_isspace(*start))
+				start++;
 		}
 		else
-			i++;
+			start++;
 		j++;
 	}
 	new[j] = '\0';

@@ -11,6 +11,7 @@ SEP_S		:=	".............................................."
 EXEC		:=	unit_test_libft
 CC		:=	cc
 CFLAGS		:=	-Wall -Wextra -Werror
+#CFLAGS		:=	-Wall -Wextra
 CFLAGSADD	:=	-Wconversion -g3 -fsanitize=address
 
 IPATH	:=	.

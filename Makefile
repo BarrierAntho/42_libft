@@ -51,9 +51,15 @@ CHAR_SRCS	:=	ft_isalnum.c\
 STR_SRCS	:=	ft_index.c\
 			ft_rindex.c\
 			ft_strchr.c\
+			ft_strchrset_exclude.c\
 			ft_strcpy.c\
+			ft_strdup.c\
 			ft_strlen.c\
+			ft_strlen_addr.c\
+			ft_strnchar.c\
+			ft_strncpy.c\
 			ft_strrchr.c\
+			ft_strrchrset_exclude.c\
 			ft_strtrim.c
 
 PUT_SRCS	:=	ft_putchar_fd.c\
