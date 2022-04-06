@@ -1,5 +1,18 @@
 #include "../include/ft_string.h"
 
+static char	*ft_strtrim_shiftspace(char *s)
+{
+	if (ft_isspace(*s))
+	{
+		s++;
+		while (ft_isspace(*s))
+			s++;
+	}
+	else
+		s++;
+	return (s);
+}
+
 char	*ft_strtrim(const char *s)
 {
 	char	*new;
@@ -19,14 +32,8 @@ char	*ft_strtrim(const char *s)
 	{
 		new[j] = *start;
 		if (ft_isspace(*start))
-		{
 			new[j] = ' ';
-			start++;
-			while (ft_isspace(*start))
-				start++;
-		}
-		else
-			start++;
+		start = ft_strtrim_shiftspace(start);
 		j++;
 	}
 	new[j] = '\0';
