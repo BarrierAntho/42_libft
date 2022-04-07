@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:05:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/05 19:30:35 by antho            ###   ########.fr       */
+/*   Updated: 2022/04/07 20:54:01 by antho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ int		ft_index(const char *s, int c);
  * @return int | -1: is not existing, >= 0: index in the string
  */
 int		ft_rindex(const char *s, int c);
+
+/**
+ * @brief Return a string array from string s splitted.
+ *
+ * @param const char *s: String to be read | int c: Character to be searched
+ * @return char* | 0: is not existing, >= 0: pointer of the string array
+ */
+char	**ft_split(const char *s, int c);
 
 /**
  * @brief Return a pointer to the first occurrence of the character c in the
@@ -71,6 +79,15 @@ char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strdup(const char *s);
 
 /**
+ * @brief Return a pointer of destination string.
+ *
+ * @param char *dst: String to be modified | const char *src: String to be copied
+ * size_t: Length of copy
+ * @return char* | 0: is not existing, >= 0: pointer of the destination string
+ */
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+
+/**
  * @brief Return the length of the string s.
  *
  * @param const char *s: String to be read
@@ -93,7 +110,7 @@ size_t	ft_strlen_addr(char *start, char *end);
  * @param const char *s: String to be read | int c: Character to be searched
  * @return int | 0: no occurence, >= 0: total of occurence
  */
-int	ft_strnchar(const char *s, int c);
+int		ft_strnchar(const char *s, int c);
 
 /**
  * @brief Return a pointer of destination string.
