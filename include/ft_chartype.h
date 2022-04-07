@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:49:53 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/31 10:28:03 by antho            ###   ########.fr       */
+/*   Updated: 2022/04/05 20:27:29 by antho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,13 @@ int	ft_isspace(int c);
  * @return int | 1: is true, 0: is false
  */
 int	ft_isupper(int c);
+
+/**
+ * @brief Return int if the character is hexa [0-9,a-z,A-Z]
+ *
+ * @param int c: Character to be checked
+ * @return int | 1: is true, 0: is false
+ */
+int	ft_isxdigit(int c);
 
 #endif
