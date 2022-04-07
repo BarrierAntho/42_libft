@@ -85,33 +85,41 @@ int	main(int argc, char **argv)
 	printf("%d\n", mft);
 
 	//char s2[] = "\tTest    \v\tft    \ttrim   ";
-	char s2[] = "Test";
+	//char s2[] = "Test";
 	//char s2[] = "";
 	//char s2[] = "Q";
 	//char s2[] = " R";
 	//char s2[] = "P ";
 	//char s2[] = "\t \n";
 	//char s2[] = "\t1 2\n";
+	char s2[] = " ";
 	printf("BEFORE: %c%s%c\n", '>', s2, '<');
 	char *s3 = ft_strtrim(s2);
 	printf("AFTER: pointer = %p\n%c%s%c\n", s3, '>', s3, '<');
-	int	res = ft_strnchar(s3, ' ');
-	printf("strnchar = %d\n", res);
-	long	test = ft_strchr(s3, ' ') - s3;
-	printf("test int : %ld\n", test);
-	s3 = ft_strchr(s3, ' ');
-	printf("AFTER: %c%s%c\n", '>', s3, '<');
-	free(s3);
+	//int	res = ft_strnchar(s3, ' ');
+	//printf("strnchar = %d\n", res);
+	//long	test = ft_strchr(s3, ' ') - s3;
+	//printf("test int : %ld\n", test);
+	//s3 = ft_strchr(s3, ' ');
+	//printf("AFTER: %c%s%c\n", '>', s3, '<');
 
-	char	s4[] = "test";
-	const char	s5[] = "YO";
+	//char	s4[] = "test";
+	//const char	s5[] = "YO";
 	//const char	*s5 = NULL;
-	strncpy(s4, s5, 4);
-	printf("strncpy: %s\n", s4);
+	//strncpy(s4, s5, 4);
+	//printf("strncpy: %s\n", s4);
 
-	char	s6[] = "test";
-	ft_strncpy(s6, s5, 4);
-	printf("ft_strncpy: %s\n", s6);
+	//char	s6[] = "test";
+	//ft_strncpy(s6, s5, 4);
+	//printf("ft_strncpy: %s\n", s6);
+
+	char	**sp1 = ft_split(s3, ' ');
+	int	k = 0;
+	while (sp1[k] != NULL)
+	{
+		printf("split string : %s\n", sp1[k]);
+		k++;
+	}
 
 	/***PRINTF***/
 
