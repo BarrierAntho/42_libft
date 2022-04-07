@@ -19,6 +19,7 @@ STRPATH		:=	string
 PUTPATH		:=	put
 MSGPATH		:=	message
 CONVPATH	:=	convert
+MEMPATH		:=	memory
 
 RM		:=	rm -rf
 
@@ -46,14 +47,17 @@ CHAR_SRCS	:=	ft_isalnum.c\
 				ft_isprint.c\
 				ft_ispunct.c\
 				ft_isspace.c\
-				ft_isupper.c
+				ft_isupper.c\
+				ft_isxdigit.c
 
 STR_SRCS	:=	ft_index.c\
 			ft_rindex.c\
+			ft_split.c\
 			ft_strchr.c\
 			ft_strchrset_exclude.c\
 			ft_strcpy.c\
 			ft_strdup.c\
+			ft_strlcpy.c\
 			ft_strlen.c\
 			ft_strlen_addr.c\
 			ft_strnchar.c\
@@ -72,19 +76,23 @@ CONV_SRCS	:=	ft_atoi.c\
 			ft_atol.c\
 			ft_atoll.c
 
+MEM_SRCS	:=	ft_free_ptrptr_str.c\
+
 OBJS		=	${addprefix ${OPATH}/, ${PRINTF_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${CHAR_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${STR_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${PUT_SRCS:.c=.o}}\
 			${addprefix ${OPATH}/, ${MSG_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${CONV_SRCS:.c=.o}}
+			${addprefix ${OPATH}/, ${CONV_SRCS:.c=.o}}\
+			${addprefix ${OPATH}/, ${MEM_SRCS:.c=.o}}
 
 #DEPS		=	${addprefix ${DPATH}/, ${PRINTF_SRCS:.c=.d}}\
 			${addprefix ${DPATH}/, ${CHAR_SRCS:.c=.d}}\
 			${addprefix ${DPATH}/, ${STR_SRCS:.c=.d}}\
 			${addprefix ${DPATH}/, ${PUT_SRCS:.c=.d}}\
 			${addprefix ${DPATH}/, ${MSG_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${CONV_SRCS:.c=.d}}
+			${addprefix ${DPATH}/, ${CONV_SRCS:.c=.d}}\
+			${addprefix ${DPATH}/, ${MEM_SRCS:.c=.d}}
 
 vpath %.h ${IPATH}
 vpath %.c ${PRINTFPATH}\
@@ -92,7 +100,8 @@ vpath %.c ${PRINTFPATH}\
 	${STRPATH}\
 	${PUTPATH}\
 	${MSGPATH}\
-	${CONVPATH}
+	${CONVPATH}\
+	${MEMPATH}
 vpath %.o ${OPATH}
 #vpath %.d ${DPATH}
 
@@ -140,5 +149,7 @@ norme:
 			norminette ${MSGPATH}
 			@echo ${SEP_P}
 			norminette ${CONVPATH}
+			@echo ${SEP_P}
+			norminette ${MEMPATH}
 
 .PHONY:			all clean fclean re norme
