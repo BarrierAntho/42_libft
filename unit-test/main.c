@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 int	main(int argc, char **argv)
 {
@@ -36,7 +37,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf(2, "%s\n", strerror(EINVAL));
+		printf("%s\n", strerror(EINVAL));
 		return (1);
 	}
 	if (strcmp("0", argv[1]) >= 0)
@@ -69,20 +70,51 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_printf(2, "%s\n", strerror(EINVAL));
+		printf("%s\n", strerror(EINVAL));
 		return (2);
 	}
 
 	/***CHARTYPE***/
+	int	c[] = {'a', '1', '\n', ' ', 'Z', '!', '-', '\\', 0};
+	//long long int	i[] = {0, 1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN};
+
+	printf("isalnum\n");
+	chartype_is(_isalnum, c);
+	printf("%s\n", SEP_P);
+	/******************************/
+	printf("isalpha\n");
+	chartype_is(_isalpha, c);
+	printf("%s\n", SEP_P);
+	/******************************/
+	printf("isascii\n");
+	chartype_is(_isascii, c);
+	printf("%s\n", SEP_P);
+	/******************************/
+	printf("isblank\n");
+	chartype_is(_isblank, c);
+	printf("%s\n", SEP_P);
+	/******************************/
+	printf("isdigit\n");
+	chartype_is(_isdigit, c);
+	printf("%s\n", SEP_P);
+	/******************************/
+	printf("islower\n");
+	chartype_is(_islower, c);
+	printf("%s\n", SEP_P);
+	/******************************/
+	printf("isprint\n");
+	chartype_is(_isprint, c);
+	printf("%s\n", SEP_P);
+	/******************************/
 
 	/***CONVERT***/
 	//char s[] = "-21474836491";
 	//char s[] = "9223372036854775807";
-	char s[] = "-20";
-	int ori = atoi(s);
-	int mft = ft_atoi(s);
-	printf("%d\n", ori);
-	printf("%d\n", mft);
+	//char s[] = "-20";
+	//int ori = atoi(s);
+	//int mft = ft_atoi(s);
+	//printf("%d\n", ori);
+	//printf("%d\n", mft);
 
 	//char s2[] = "\tTest    \v\tft    \ttrim   ";
 	//char s2[] = "Test";
@@ -92,10 +124,10 @@ int	main(int argc, char **argv)
 	//char s2[] = "P ";
 	//char s2[] = "\t \n";
 	//char s2[] = "\t1 2\n";
-	char s2[] = " ";
-	printf("BEFORE: %c%s%c\n", '>', s2, '<');
-	char *s3 = ft_strtrim(s2);
-	printf("AFTER: pointer = %p\n%c%s%c\n", s3, '>', s3, '<');
+	//char s2[] = " ";
+	//printf("BEFORE: %c%s%c\n", '>', s2, '<');
+	//char *s3 = ft_strtrim(s2);
+	//printf("AFTER: pointer = %p\n%c%s%c\n", s3, '>', s3, '<');
 	//int	res = ft_strnchar(s3, ' ');
 	//printf("strnchar = %d\n", res);
 	//long	test = ft_strchr(s3, ' ') - s3;
@@ -113,13 +145,13 @@ int	main(int argc, char **argv)
 	//ft_strncpy(s6, s5, 4);
 	//printf("ft_strncpy: %s\n", s6);
 
-	char	**sp1 = ft_split(s3, ' ');
-	int	k = 0;
-	while (sp1[k] != NULL)
-	{
-		printf("split string : %s\n", sp1[k]);
-		k++;
-	}
+	//char	**sp1 = ft_split(s3, ' ');
+	//int	k = 0;
+	//while (sp1[k] != NULL)
+	//{
+	//	printf("split string : %s\n", sp1[k]);
+	//	k++;
+	//}
 
 	/***PRINTF***/
 

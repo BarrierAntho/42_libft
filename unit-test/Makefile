@@ -1,5 +1,5 @@
 # libft settings
-FTPATH		:=	../
+FTPATH		:=	..
 IFT		:=	include
 FTHEADER	:=	ft_libft.h
 FTNAME		:=	libft.a
@@ -20,7 +20,8 @@ RM		:=	rm -rf
 
 INCLUDES	:=	main.h
 
-SRCS		:=	main.c
+SRCS		:=	main.c\
+			chartype_is.c
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -46,4 +47,11 @@ re:
 			make re -C ${FTPATH}
 			make fclean all
 
-.PHONY:			all clean fclean re 
+test_ori:
+			./${EXEC} 0
+
+test_mft:
+			./${EXEC} 1
+
+
+.PHONY:			all clean fclean re test
