@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 12:19:28 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/11 13:09:11 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:33:55 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_dprintf_putu(int fd, va_list va, const char *base)
 {
-	int		res;
+	int				res;
 	unsigned int	un;
 
 	res = 0;
