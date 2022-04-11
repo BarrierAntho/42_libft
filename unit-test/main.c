@@ -5,17 +5,23 @@ int	main(int argc, char **argv)
 {
 	(void)argv;
 	/***CHARTYPE***/
-	int (*_isalnum)(int);
-	int (*_isalpha)(int);
-	int (*_isascii)(int);
-	int (*_isblank)(int);
-	int (*_isdigit)(int);
-	int (*_islower)(int);
-	int (*_ispolarity)(int);
-	int (*_isprint)(int);
-	int (*_ispunct)(int);
-	int (*_isspace)(int);
+	int	(*_isalnum)(int);
+	int	(*_isalpha)(int);
+	int	(*_isascii)(int);
+	int	(*_isblank)(int);
+	int	(*_isdigit)(int);
+	int	(*_islower)(int);
+	int	(*_ispolarity)(int);
+	int	(*_isprint)(int);
+	int	(*_ispunct)(int);
+	int	(*_isspace)(int);
 	int	(*_isupper)(int);
+	/***CONVERT***/
+//	int	(*_atoi)(const char *);
+//	long	(*_atol)(const char *);
+//	long long	(*_atoll)(const char *);
+	/***PRINTF***/
+	int	(*_dprintf)(int, const char *, ...);	
 	/***STRING***/
 //	int	(*_index)(const char *, int);
 //	int	(*_rindex)(const char *, int);
@@ -30,10 +36,6 @@ int	main(int argc, char **argv)
 //	char	(*_strrchr)(const char *, int);
 //	char	(*_strrchrset_exclude)(const char *, const char *);
 //	char	(*_strtrim)(const char *);
-	/***CONVERT***/
-//	int	(*_atoi)(const char *);
-//	long	(*_atol)(const char *);
-//	long long	(*_atoll)(const char *);
 
 	if (argc != 2)
 	{
@@ -53,6 +55,7 @@ int	main(int argc, char **argv)
 		_ispunct = &ispunct;
 		_isspace = &isspace;
 		_isupper = &isupper;
+		_dprintf = &dprintf;
 	}
 	else if (strcmp("1", argv[1]) >= 0)
 	{
@@ -67,6 +70,7 @@ int	main(int argc, char **argv)
 		_ispunct = &ft_ispunct;
 		_isspace = &ft_isspace;
 		_isupper = &ft_isupper;
+		_dprintf = &ft_dprintf;
 	}
 	else
 	{
@@ -76,7 +80,8 @@ int	main(int argc, char **argv)
 
 	/***CHARTYPE***/
 	int	c[] = {'a', '1', '\n', ' ', 'Z', '!', '-', '\\', 0};
-	//long long int	i[] = {0, 1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN};
+	long long int	i[] = {0, 1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN};
+	char	*s[] = {"test", "prout"};
 
 	printf("isalnum\n");
 	chartype_is(_isalnum, c);
@@ -106,6 +111,15 @@ int	main(int argc, char **argv)
 	chartype_is(_isprint, c);
 	printf("%s\n", SEP_P);
 	/******************************/
+
+	/***PRINTF***/
+	printf("dprintf\n");
+	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
+			c[0], s[0], s[0], i[0], i[0], i[0]);
+	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
+			c[3], s[1], s[1], i[5], i[5], i[5]);
+	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
+			c[3], NULL, NULL, i[5], i[5], i[5]);
 
 	/***CONVERT***/
 	//char s[] = "-21474836491";

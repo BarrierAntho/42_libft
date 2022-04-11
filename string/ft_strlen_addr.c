@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_string.h"
+#include "ft_string.h"
 
 size_t	ft_strlen_addr(char *start, char *end)
 {

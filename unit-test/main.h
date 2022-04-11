@@ -11,7 +11,6 @@
 
 # include "../include/ft_libft.h"
 
-# define SEP_P "*****************************************"
 # define SEP_S "-----------------------------------------"
 
 void	chartype_is(int(*f)(int), int *input);

@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoll.c                                         :+:      :+:    :+:   */
+/*   ft_putn_base_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 08:16:38 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/11 08:16:39 by abarrier         ###   ########.fr       */
+/*   Created: 2022/04/11 09:11:38 by abarrier          #+#    #+#             */
+/*   Updated: 2022/04/11 09:30:36 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_convert.h"
+#include "ft_put.h"
 
-long long	ft_atoll(const char *s)
+int	ft_putn_base_fd(int fd, const char *base, long long n)
 {
-	unsigned long long	n;
-	int					sign;
-	int					i;
+	int					res;
+	unsigned long long	un;
 
-	n = 0;
-	sign = 1;
-	i = 0;
-	while (ft_isspace(s[i]))
-		i++;
-	if (ft_ispolarity(s[i]))
+	res = 0;
+	un = 0;
+	if (n < 0)
 	{
-		if (s[i] == '-')
-			sign *= (-1);
-		i++;
+		res += ft_putchar_fd(fd, '-');
+		un = -(unsigned long long)n;
 	}
-	while (ft_isdigit(s[i]))
-	{
-		n = (n * 10) + (unsigned long long)(s[i] - '0');
-		i++;
-	}
-	return (sign * (long long)n);
+	else
+		un = (unsigned long long)n;
+	ft_putun_base_fd_recursive(fd, base, un, &res);
+	return (res);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_string.h"
+#include "ft_string.h"
 
 int	ft_strnchar(const char *s, int c)
 {

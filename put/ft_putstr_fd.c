@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_put.h"
+#include "ft_put.h"
 
 int	ft_putstr_fd(int fd, char *s)
 {

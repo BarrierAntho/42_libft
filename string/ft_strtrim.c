@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_string.h"
+#include "ft_string.h"
 
 static char	*ft_strtrim_shiftspace(char *s)
 {

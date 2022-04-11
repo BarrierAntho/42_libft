@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_string.h"
+#include "ft_string.h"
 
 char	*ft_strchrset_exclude(const char *s, const char *chrset)
 {

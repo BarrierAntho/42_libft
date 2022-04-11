@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_chartype.h"
+#include "ft_chartype.h"
 
 int	ft_isxdigit(int c)
 {

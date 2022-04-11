@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_convert.h"
+#include "ft_convert.h"
 
 long	ft_atol(const char *s)
 {
