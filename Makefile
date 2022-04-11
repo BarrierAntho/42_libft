@@ -83,7 +83,7 @@ SRCS		:=	${CHAR_SRCS}\
 
 OBJS		=	${addprefix ${OPATH}/, ${SRCS:.c=.o}}
 
-DEPS		=	$(OBJS:.o=.d)	
+DEPS		=	${OBJS:.o=.d}
 
 vpath %.h ${IPATH}
 vpath %.c ${DPRINTFPATH}\
