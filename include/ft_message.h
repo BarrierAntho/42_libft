@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:41:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/07 22:05:15 by antho            ###   ########.fr       */
+/*   Updated: 2022/04/11 07:58:28 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "ft_color.h"
 
 /***GLOBAL***/
+# define SEP_P "******************************"
 # define ERR_ARG "Wrong argument definition"
 # define ERR_FILEOPEN "File is missing or not readable"
 # define ERR_MALLOC "Malloc issue"
