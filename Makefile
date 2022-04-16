@@ -4,7 +4,8 @@ SEP_S		:=	".............................................."
 NAME		:=	libft.a
 CC		:=	cc
 CFLAGS		:=	-MMD -Wall -Wextra -Werror
-CFLAGSADD	:=	-Wconversion -g3 -fsanitize=address
+#CFLAGSADD	:=	-Wconversion -g3 -fsanitize=address
+CFLAGSADD	:=	-g3 -fsanitize=address
 
 IPATH		:=	include
 OPATH		:=	obj
@@ -73,68 +74,68 @@ STR_SRCS	:=	ft_index.c\
 			ft_strrchrset_exclude.c\
 			ft_strtrim.c
 
-SRCS		:=	${CHAR_SRCS}\
-			${CONV_SRCS}\
-			${DPRINTF_SRCS}\
-			${MEM_SRCS}\
-			${MSG_SRCS}\
-			${PUT_SRCS}\
-			${STR_SRCS}
+SRCS		:=	$(CHAR_SRCS)\
+			$(CONV_SRCS)\
+			$(DPRINTF_SRCS)\
+			$(MEM_SRCS)\
+			$(MSG_SRCS)\
+			$(PUT_SRCS)\
+			$(STR_SRCS)
 
-OBJS		=	${addprefix ${OPATH}/, ${SRCS:.c=.o}}
+OBJS		=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 
-DEPS		=	${OBJS:.o=.d}
+DEPS		=	$(OBJS:.o=.d)
 
-vpath %.h ${IPATH}
-vpath %.c ${DPRINTFPATH}\
-	${CHARPATH}\
-	${STRPATH}\
-	${PUTPATH}\
-	${MSGPATH}\
-	${CONVPATH}\
-	${MEMPATH}
-vpath %.o ${OPATH}
+vpath %.h $(IPATH)
+vpath %.c $(DPRINTFPATH)\
+	$(CHARPATH)\
+	$(STRPATH)\
+	$(PUTPATH)\
+	$(MSGPATH)\
+	$(CONVPATH)\
+	$(MEMPATH)
+vpath %.o $(OPATH)
 
-all:			${NAME}
+all:			$(NAME)
 
-${OPATH}/%.o:			%.c
-			${CC} ${CFLAGS} ${CFLAGSADD} -I ${IPATH} -c $< -o $@
+$(OPATH)/%.o:			%.c
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -c $< -o $@
 
-${NAME}:		${OBJS}
+$(NAME):		$(OBJS)
 			ar rcs $@ $^
 
-${OBJS}:		| ${OPATH}
+$(OBJS):		| $(OPATH)
 
-${OPATH}:
-			mkdir -p ${OPATH}
+$(OPATH):
+			mkdir -p $(OPATH)
 
 clean:
-			${RM} ${OPATH}
+			$(RM) $(OPATH)
 
 fclean:			clean
-			${RM} ${NAME}
+			$(RM) $(NAME)
 
 re:			fclean
 			@make all
 
 norme:
-			@echo ${SEP_P}
-			norminette ${IPATH}
-			@echo ${SEP_P}
-			norminette ${DPRINTFPATH}
-			@echo ${SEP_P}
-			norminette ${CHARPATH}
-			@echo ${SEP_P}
-			norminette ${STRPATH}
-			@echo ${SEP_P}
-			norminette ${PUTPATH}
-			@echo ${SEP_P}
-			norminette ${MSGPATH}
-			@echo ${SEP_P}
-			norminette ${CONVPATH}
-			@echo ${SEP_P}
-			norminette ${MEMPATH}
+			@echo $(SEP_P)
+			norminette $(IPATH)
+			@echo $(SEP_P)
+			norminette $(DPRINTFPATH)
+			@echo $(SEP_P)
+			norminette $(CHARPATH)
+			@echo $(SEP_P)
+			norminette $(STRPATH)
+			@echo $(SEP_P)
+			norminette $(PUTPATH)
+			@echo $(SEP_P)
+			norminette $(MSGPATH)
+			@echo $(SEP_P)
+			norminette $(CONVPATH)
+			@echo $(SEP_P)
+			norminette $(MEMPATH)
 
--include ${DEPS}
+-include $(DEPS)
 
 .PHONY:			all clean fclean re norme
