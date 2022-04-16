@@ -1,4 +1,16 @@
-#include "../include/ft_string.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchrset_exclude.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/11 08:15:50 by abarrier          #+#    #+#             */
+/*   Updated: 2022/04/11 08:15:51 by abarrier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
 
 char	*ft_strrchrset_exclude(const char *s, const char *chrset)
 {

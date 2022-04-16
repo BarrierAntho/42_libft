@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_putc.c                                   :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 17:22:42 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/28 17:43:34 by abarrier         ###   ########.fr       */
+/*   Created: 2022/03/28 16:25:47 by abarrier          #+#    #+#             */
+/*   Updated: 2022/04/11 08:23:04 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_dprintf.h"
+#include "ft_message.h"
 
-int	ft_printf_putc(int fd, va_list va)
+int	ft_dprintf(int fd, const char *s, ...)
 {
-	int	ap;
+	int			res;
+	va_list		va;
 
-	ap = (int)va_arg(va, int);
-	return (ft_putchar_fd(fd, ap));
+	if (fd < 0)
+		return (ft_error("ft_dprintf", "fd", 0, ERR_FD));
+	res = 0;
+	va_start(va, s);
+	while (*s)
+	{
+		if (*s == '%')
+		{
+			s++;
+			res += ft_dprintf_arg(fd, s, va);
+		}
+		else
+			res += ft_putchar_fd(fd, *s);
+		s++;
+	}
+	va_end(va);
+	return (res);
 }

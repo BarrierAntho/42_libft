@@ -3,39 +3,23 @@ SEP_S		:=	".............................................."
 
 NAME		:=	libft.a
 CC		:=	cc
-CFLAGS		:=	-Wall -Wextra -Werror
+CFLAGS		:=	-MMD -Wall -Wextra -Werror
 CFLAGSADD	:=	-Wconversion -g3 -fsanitize=address
-DFLAGS		:=	-MMD
 
 IPATH		:=	include
 OPATH		:=	obj
-DPATH		:=	dep
 
 # SOURCES FOLDER
-PRINTFPATH	:=	ft_printf
-GNLPATH		:=	gnl
 CHARPATH	:=	chartype
+CONVPATH	:=	convert
+DPRINTFPATH	:=	ft_dprintf
+GNLPATH		:=	gnl
+MEMPATH		:=	memory
+MSGPATH		:=	message
 STRPATH		:=	string
 PUTPATH		:=	put
-MSGPATH		:=	message
-CONVPATH	:=	convert
-MEMPATH		:=	memory
 
 RM		:=	rm -rf
-
-#TIPS: List in the correct form 'ls -1 <directory> | sed's/$/\\/g' 
-INCLUDES	:=	ft_chartype.h\
-			ft_color.h\
-			ft_libft.h\
-			ft_message.h\
-			ft_printf.h\
-			ft_put.h\
-			ft_string.h
-
-PRINTF_SRCS	:=	ft_printf_arg.c\
-			ft_printf.c\
-			ft_printf_putc.c\
-			ft_printf_puts.c
 
 CHAR_SRCS	:=	ft_isalnum.c\
 				ft_isalpha.c\
@@ -49,6 +33,29 @@ CHAR_SRCS	:=	ft_isalnum.c\
 				ft_isspace.c\
 				ft_isupper.c\
 				ft_isxdigit.c
+
+CONV_SRCS	:=	ft_atoi.c\
+			ft_atol.c\
+			ft_atoll.c
+
+DPRINTF_SRCS	:=	ft_dprintf_arg.c\
+			ft_dprintf.c\
+			ft_dprintf_putc.c\
+			ft_dprintf_putd.c\
+			ft_dprintf_putp.c\
+			ft_dprintf_puts.c\
+			ft_dprintf_putu.c\
+			ft_dprintf_putx.c
+
+MEM_SRCS	:=	ft_free_ptrptr_str.c\
+
+MSG_SRCS	:=	ft_error.c\
+			ft_warning.c
+
+PUT_SRCS	:=	ft_putchar_fd.c\
+			ft_putn_base_fd.c\
+			ft_putstr_fd.c\
+			ft_putun_base_fd_recursive.c
 
 STR_SRCS	:=	ft_index.c\
 			ft_rindex.c\
@@ -66,36 +73,20 @@ STR_SRCS	:=	ft_index.c\
 			ft_strrchrset_exclude.c\
 			ft_strtrim.c
 
-PUT_SRCS	:=	ft_putchar_fd.c\
-			ft_putstr_fd.c
+SRCS		:=	${CHAR_SRCS}\
+			${CONV_SRCS}\
+			${DPRINTF_SRCS}\
+			${MEM_SRCS}\
+			${MSG_SRCS}\
+			${PUT_SRCS}\
+			${STR_SRCS}
 
-MSG_SRCS	:=	ft_error.c\
-			ft_warning.c
+OBJS		=	${addprefix ${OPATH}/, ${SRCS:.c=.o}}
 
-CONV_SRCS	:=	ft_atoi.c\
-			ft_atol.c\
-			ft_atoll.c
-
-MEM_SRCS	:=	ft_free_ptrptr_str.c\
-
-OBJS		=	${addprefix ${OPATH}/, ${PRINTF_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${CHAR_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${STR_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${PUT_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${MSG_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${CONV_SRCS:.c=.o}}\
-			${addprefix ${OPATH}/, ${MEM_SRCS:.c=.o}}
-
-#DEPS		=	${addprefix ${DPATH}/, ${PRINTF_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${CHAR_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${STR_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${PUT_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${MSG_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${CONV_SRCS:.c=.d}}\
-			${addprefix ${DPATH}/, ${MEM_SRCS:.c=.d}}
+DEPS		=	${OBJS:.o=.d}
 
 vpath %.h ${IPATH}
-vpath %.c ${PRINTFPATH}\
+vpath %.c ${DPRINTFPATH}\
 	${CHARPATH}\
 	${STRPATH}\
 	${PUTPATH}\
@@ -103,42 +94,34 @@ vpath %.c ${PRINTFPATH}\
 	${CONVPATH}\
 	${MEMPATH}
 vpath %.o ${OPATH}
-#vpath %.d ${DPATH}
 
 all:			${NAME}
 
-${OPATH}/%.o:			%.c ${INCLUDES}
+${OPATH}/%.o:			%.c
 			${CC} ${CFLAGS} ${CFLAGSADD} -I ${IPATH} -c $< -o $@
 
-#${DPATH}/%.d:			%.c ${INCLUDES}
-#			${CC} ${CFLAGS} ${CFLAGSADD} -I ${IPATH} -c $< ${DFLAGS} -o $@
-
-${NAME}:		${OBJS} ${DEPS}
-			ar rc ${NAME} ${OBJS}
+${NAME}:		${OBJS}
+			ar rcs $@ $^
 
 ${OBJS}:		| ${OPATH}
 
 ${OPATH}:
 			mkdir -p ${OPATH}
 
-#${DEPS}:		| ${DPATH}
-
-#${DPATH}:
-#			mkdir -p ${DPATH}
-
 clean:
-			${RM} ${OBJS}
+			${RM} ${OPATH}
 
 fclean:			clean
 			${RM} ${NAME}
 
-re:			fclean all
+re:			fclean
+			@make all
 
 norme:
 			@echo ${SEP_P}
 			norminette ${IPATH}
 			@echo ${SEP_P}
-			norminette ${PRINTFPATH}
+			norminette ${DPRINTFPATH}
 			@echo ${SEP_P}
 			norminette ${CHARPATH}
 			@echo ${SEP_P}
@@ -151,5 +134,7 @@ norme:
 			norminette ${CONVPATH}
 			@echo ${SEP_P}
 			norminette ${MEMPATH}
+
+-include ${DEPS}
 
 .PHONY:			all clean fclean re norme

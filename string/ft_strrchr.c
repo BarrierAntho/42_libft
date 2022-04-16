@@ -6,11 +6,11 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:22:49 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/05 19:46:10 by antho            ###   ########.fr       */
+/*   Updated: 2022/04/11 08:15:41 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_string.h"
+#include "ft_string.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

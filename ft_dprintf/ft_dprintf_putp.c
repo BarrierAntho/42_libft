@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_puts.c                                   :+:      :+:    :+:   */
+/*   ft_dprintf_putp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 17:31:31 by abarrier          #+#    #+#             */
-/*   Updated: 2022/03/28 17:44:10 by abarrier         ###   ########.fr       */
+/*   Created: 2022/04/11 12:31:22 by abarrier          #+#    #+#             */
+/*   Updated: 2022/04/11 13:33:10 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_dprintf.h"
+#include "ft_constant.h"
 
-int	ft_printf_puts(int fd, va_list va)
+int	ft_dprintf_putp(int fd, va_list va, const char *base)
 {
-	char	*ap;
+	int					res;
+	unsigned long long	un;
 
-	ap = (char *)va_arg(va, char *);
-	return (ft_putstr_fd(fd, ap));
+	res = 0;
+	un = (unsigned long long)va_arg(va, unsigned long long);
+	if (un == 0)
+		return (ft_putstr_fd(fd, NULL_PTR));
+	res += ft_putstr_fd(fd, PREF_HEXA_L);
+	ft_putun_base_fd_recursive(fd, base, un, &res);
+	return (res);
 }

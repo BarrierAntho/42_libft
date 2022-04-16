@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memory.h                                        :+:      :+:    :+:   */
+/*   ft_dprintf_puts.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 08:12:00 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/11 11:15:24 by abarrier         ###   ########.fr       */
+/*   Created: 2022/03/28 17:31:31 by abarrier          #+#    #+#             */
+/*   Updated: 2022/04/11 13:26:06 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MEMORY_H
-# define FT_MEMORY_H
+#include "ft_dprintf.h"
+#include "ft_constant.h"
 
-# include <stdlib.h>
+int	ft_dprintf_puts(int fd, va_list va)
+{
+	char	*ap;
 
-char	*ft_free_ptrptr_str(char **s);
-
-#endif
+	ap = (char *)va_arg(va, char *);
+	if (!ap)
+		return (ft_putstr_fd(fd, NULL_STR));
+	else
+		return (ft_putstr_fd(fd, ap));
+}

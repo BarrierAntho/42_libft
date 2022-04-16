@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memory.h                                        :+:      :+:    :+:   */
+/*   ft_dprintf_putu.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 08:12:00 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/11 11:15:24 by abarrier         ###   ########.fr       */
+/*   Created: 2022/04/11 12:19:28 by abarrier          #+#    #+#             */
+/*   Updated: 2022/04/11 13:33:55 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MEMORY_H
-# define FT_MEMORY_H
+#include "ft_dprintf.h"
 
-# include <stdlib.h>
+int	ft_dprintf_putu(int fd, va_list va, const char *base)
+{
+	int				res;
+	unsigned int	un;
 
-char	*ft_free_ptrptr_str(char **s);
-
-#endif
+	res = 0;
+	un = (unsigned int)va_arg(va, unsigned int);
+	ft_putun_base_fd_recursive(fd, base, un, &res);
+	return (res);
+}
