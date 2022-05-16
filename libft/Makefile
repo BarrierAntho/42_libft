@@ -16,6 +16,7 @@ CHARPATH	:=	chartype
 CONVPATH	:=	convert
 DPRINTFPATH	:=	ft_dprintf
 GNLPATH		:=	gnl
+LISTPATH	:=	list
 MEMPATH		:=	memory
 MSGPATH		:=	message
 STRPATH		:=	string
@@ -49,7 +50,18 @@ DPRINTF_SRCS	:=	ft_dprintf_arg.c\
 			ft_dprintf_putu.c\
 			ft_dprintf_putx.c
 
+GNL_SRCS	:=	get_next_line.c\
+			get_next_line_utils.c
+
+LIST_SRCS	:=	ft_lst_append.c\
+			ft_lst_clear.c\
+			ft_lst_delbyobj.c\
+			ft_lst_last.c\
+			ft_lst_new.c\
+			ft_lst_size.c
+
 MEM_SRCS	:=	ft_free_ptrptr_str.c\
+			ft_memcmp.c
 
 MSG_SRCS	:=	ft_error.c\
 			ft_shell_msg.c\
@@ -79,6 +91,8 @@ STR_SRCS	:=	ft_index.c\
 SRCS		:=	$(CHAR_SRCS)\
 			$(CONV_SRCS)\
 			$(DPRINTF_SRCS)\
+			$(GNL_SRCS)\
+			$(LIST_SRCS)\
 			$(MEM_SRCS)\
 			$(MSG_SRCS)\
 			$(PUT_SRCS)\
@@ -89,13 +103,15 @@ OBJS		=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS		=	$(OBJS:.o=.d)
 
 vpath %.h $(IPATH)
-vpath %.c $(DPRINTFPATH)\
-	$(CHARPATH)\
-	$(STRPATH)\
-	$(PUTPATH)\
-	$(MSGPATH)\
+vpath %.c $(CHARPATH)\
 	$(CONVPATH)\
-	$(MEMPATH)
+	$(DPRINTFPATH)\
+	$(GNLPATH)\
+	$(LISTPATH)\
+	$(MEMPATH)\
+	$(MSGPATH)\
+	$(PUTPATH)\
+	$(STRPATH)
 vpath %.o $(OPATH)
 
 all:			$(NAME)

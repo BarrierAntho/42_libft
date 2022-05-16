@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libft.h                                         :+:      :+:    :+:   */
+/*   ft_lst_delbyobj.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 18:00:42 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 09:51:02 by abarrier         ###   ########.fr       */
+/*   Created: 2022/05/16 09:31:55 by abarrier          #+#    #+#             */
+/*   Updated: 2022/05/16 09:56:35 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIBFT_H
-# define FT_LIBFT_H
+#include "ft_list.h"
 
-# include "ft_chartype.h"
-# include "ft_color.h"
-# include "ft_constant.h"
-# include "ft_convert.h"
-# include "ft_dprintf.h"
-# include "ft_list.h"
-# include "ft_memory.h"
-# include "ft_message.h"
-# include "ft_put.h"
-# include "ft_string.h"
-# include "get_next_line.h"
+t_list	*ft_lst_delbyobj(t_list *obj)
+{
+	t_list	*prev;
+	t_list	*next;
 
-#endif
+	if (!obj)
+	{
+		ft_error("lst_delbyobj", "obj", 0, ERR_NOOBJ);
+		return (NULL);
+	}
+	prev = obj->prev;
+	next = obj->next;
+	if (prev)
+	{
+		prev->next = next;
+		if (next)
+			next->prev = prev;
+	}
+	else if (next)
+		next->prev = NULL;
+	free(obj);
+	obj = NULL;
+	return (next);
+}
