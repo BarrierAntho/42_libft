@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:05:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/04/07 20:54:01 by antho            ###   ########.fr       */
+/*   Updated: 2022/05/16 12:02:46 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,14 @@ char	*ft_strcpy(char *dst, const char *src);
  * @return char* | 0: is not existing, >= 0: pointer of the new string
  */
 char	*ft_strdup(const char *s);
+
+/**
+ * @brief Return a new string resulting of concatenation of s1 and s2
+ *
+ * @param const char *s1: String to be concatenated | char *s2: String to be concatenated
+ * @return char* | 0: is not existing, >= 0: pointer of the new string
+ */
+char	*ft_strjoin(const char *s1, const char *s2);
 
 /**
  * @brief Return a pointer of destination string.

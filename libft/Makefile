@@ -79,6 +79,7 @@ STR_SRCS	:=	ft_index.c\
 			ft_strchrset_exclude.c\
 			ft_strcpy.c\
 			ft_strdup.c\
+			ft_strjoin.c\
 			ft_strlcpy.c\
 			ft_strlen.c\
 			ft_strlen_addr.c\
