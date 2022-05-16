@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:21:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 16:40:07 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/16 17:05:03 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,32 @@ void	string_strncmp(int(*f)(const char *, const char *, size_t),
 				k++;
 				printf("%s\n", SEP_S);
 			}
+			j++;
+			printf("%s\n", SEP_P);
+		}
+		i++;
+	}
+}
+
+void	string_strstr(char *(*f)(const char *, const char *),
+		char **s1, char **s2)
+{
+	int	i;
+	int	j;
+	char	*res;
+
+	i = 0;
+	j = 0;
+	res = NULL;
+	while (s1[i])
+	{
+		j = 0;
+		while (s2[j])
+		{
+			res = NULL;
+			printf("s1: %s\ts2: %s\n", s1[i], s2[j]);
+			res = (*f)((const char *)s1[i], (const char *)s2[j]);
+			printf("res: %s\n", res);
 			j++;
 			printf("%s\n", SEP_P);
 		}

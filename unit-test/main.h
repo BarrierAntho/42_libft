@@ -20,5 +20,7 @@ void	memory_cmp(int(*f)(const void *, const void *, size_t), const void *input1,
 /***STRING***/
 void	string_strncmp(int(*f)(const char *, const char *, size_t),
 		char **s1, char **s2, int *input);
+void	string_strstr(char *(*f)(const char *, const char *),
+		char **s1, char **s2);
 
 #endif

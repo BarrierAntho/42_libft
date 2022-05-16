@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 //	char	(*_strrchrset_exclude)(const char *, const char *);
 //	char	(*_strtrim)(const char *);
 	int	(*_strncmp)(const char *, const char *, size_t);
+	char	*(*_strstr)(const char *, const char *);
 
 	if (argc != 2)
 	{
@@ -61,6 +62,7 @@ int	main(int argc, char **argv)
 		_memcmp = &memcmp;
 		_dprintf = &dprintf;
 		_strncmp = &strncmp;
+		_strstr= &strstr;
 	}
 	else if (strcmp("1", argv[1]) >= 0)
 	{
@@ -78,6 +80,7 @@ int	main(int argc, char **argv)
 		_memcmp = &ft_memcmp;
 		_dprintf = &ft_dprintf;
 		_strncmp = &ft_strncmp;
+		_strstr = &ft_strstr;
 	}
 	else
 	{
@@ -87,11 +90,10 @@ int	main(int argc, char **argv)
 
 	/***CHARTYPE***/
 	int	c[] = {'a', '1', '\n', ' ', 'Z', '!', '-', '\\', 0};
-	int	i[] = {2, 1, 42, -1, -100, INT_MAX, INT_MIN, 0};
-	long long int	lli[] = {0, 1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN};
-	char	*s1[] = {"test", "prout", NULL};
-	char	*s2[] = {"test", "prout", NULL};
-
+	int	i[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 42, -1, -100, INT_MAX, INT_MIN, 0};
+	long long int	lli[] = {1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN, 0};
+	char	*s1[] = {"hello", "world", "hello world", NULL};
+	char	*s2[] = {"hello", "world", "hello world", NULL};
 
 	printf("isalnum\n");
 	chartype_is(_isalnum, c);
@@ -191,20 +193,12 @@ int	main(int argc, char **argv)
 	/***PUT***/
 
 	/***STRING***/
-	//char *test_strstr = strstr("HelHello World", "Hello");
-	//char needle[] = "0x0";
-	//char *test_strstr = strstr("HelHello World", needle);
-	//printf("pointer: %p\ts: %s\n", test_strstr, test_strstr);
 	printf("strncmp\n");
 	string_strncmp(_strncmp, s1, s2, i);
 	printf("%s\n", SEP_P);
-/*
-	int test_strncmp = _strncmp("Hello World", "Hello", 10);
-	printf("pointer: %d\n", test_strncmp);
-	int test_strncmp2 = _strncmp("hello", "hello world", 10);
-	printf("pointer: %d\n", test_strncmp2);
-	int test_strncmp3 = _strncmp("Hello world", "hello world", 10);
-	printf("pointer: %d\n", test_strncmp3);
-*/
+	/******************************/
+	printf("strstr\n");
+	string_strstr(_strstr, s1, s2);
+	printf("%s\n", SEP_P);
 	return (0);
 }
