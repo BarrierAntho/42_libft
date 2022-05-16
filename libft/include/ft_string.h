@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:05:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 13:02:49 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/16 15:17:11 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,15 @@ size_t	ft_strlen_addr(char *start, char *end);
  * @return int | 0: no occurence, >= 0: total of occurence
  */
 int		ft_strnchar(const char *s, int c);
+
+/**
+ * @brief Return integer indicating the result of the comparison
+ *
+ * @param const char *s1: String to be read | const char *s2: String to be compared
+ * size_t n: Total of character to be compared
+ * @return int | 0: occurence, != 0: no occurence
+ */
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @brief Return a pointer of destination string.

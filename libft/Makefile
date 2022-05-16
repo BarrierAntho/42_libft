@@ -87,6 +87,7 @@ STR_SRCS	:=	ft_index.c\
 			ft_strlen.c\
 			ft_strlen_addr.c\
 			ft_strnchar.c\
+			ft_strncmp.c\
 			ft_strncpy.c\
 			ft_strrchr.c\
 			ft_strrchrset_exclude.c\
