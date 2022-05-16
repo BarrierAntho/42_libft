@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 //	char	(*_strrchr)(const char *, int);
 //	char	(*_strrchrset_exclude)(const char *, const char *);
 //	char	(*_strtrim)(const char *);
+	int	(*_strncmp)(const char *, const char *, size_t);
 
 	if (argc != 2)
 	{
@@ -59,6 +60,7 @@ int	main(int argc, char **argv)
 		_isupper = &isupper;
 		_memcmp = &memcmp;
 		_dprintf = &dprintf;
+		_strncmp = &strncmp;
 	}
 	else if (strcmp("1", argv[1]) >= 0)
 	{
@@ -75,6 +77,7 @@ int	main(int argc, char **argv)
 		_isupper = &ft_isupper;
 		_memcmp = &ft_memcmp;
 		_dprintf = &ft_dprintf;
+		_strncmp = &ft_strncmp;
 	}
 	else
 	{
@@ -84,9 +87,11 @@ int	main(int argc, char **argv)
 
 	/***CHARTYPE***/
 	int	c[] = {'a', '1', '\n', ' ', 'Z', '!', '-', '\\', 0};
-	long long int	i[] = {0, 1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN};
-	char	*s1[] = {"test", "prout"};
-	//char	*s2[] = {"test", "prout"};
+	int	i[] = {2, 1, 42, -1, -100, INT_MAX, INT_MIN, 0};
+	long long int	lli[] = {0, 1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN};
+	char	*s1[] = {"test", "prout", NULL};
+	char	*s2[] = {"test", "prout", NULL};
+
 
 	printf("isalnum\n");
 	chartype_is(_isalnum, c);
@@ -118,19 +123,22 @@ int	main(int argc, char **argv)
 	/******************************/
 
 	/***MEMORY***/
-	printf("memcmp\n");
-	char test[] = "yo hi hey hell bonjour hello";
-	char test2[] = "hello";
-	memory_cmp(_memcmp, (const void *)test, (const void *)test2, sizeof(test));
+	//printf("memcmp\n");
+	//char test[] = "yo hi hey hell bonjour hello";
+	//char test2[] = "hello";
+	//memory_cmp(_memcmp, (const void *)test, (const void *)test2, sizeof(test));
 
 	/***PRINTF***/
 	printf("dprintf\n");
 	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
-			c[0], s1[0], s1[0], i[0], i[0], i[0]);
+			c[0], s1[0], s1[0], lli[0], lli[0], lli[0]);
+	printf("%s\n", SEP_P);
 	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
-			c[3], s1[1], s1[1], i[5], i[5], i[5]);
+			c[3], s1[1], s1[1], lli[5], lli[5], lli[5]);
+	printf("%s\n", SEP_P);
 	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
-			c[3], NULL, NULL, i[5], i[5], i[5]);
+			c[3], NULL, NULL, lli[5], lli[5], lli[5]);
+	printf("%s\n", SEP_P);
 
 	/***CONVERT***/
 	//char s[] = "-21474836491";
@@ -183,6 +191,20 @@ int	main(int argc, char **argv)
 	/***PUT***/
 
 	/***STRING***/
-
+	//char *test_strstr = strstr("HelHello World", "Hello");
+	//char needle[] = "0x0";
+	//char *test_strstr = strstr("HelHello World", needle);
+	//printf("pointer: %p\ts: %s\n", test_strstr, test_strstr);
+	printf("strncmp\n");
+	string_strncmp(_strncmp, s1, s2, i);
+	printf("%s\n", SEP_P);
+/*
+	int test_strncmp = _strncmp("Hello World", "Hello", 10);
+	printf("pointer: %d\n", test_strncmp);
+	int test_strncmp2 = _strncmp("hello", "hello world", 10);
+	printf("pointer: %d\n", test_strncmp2);
+	int test_strncmp3 = _strncmp("Hello world", "hello world", 10);
+	printf("pointer: %d\n", test_strncmp3);
+*/
 	return (0);
 }

@@ -10,8 +10,9 @@ SEP_P		:=	"----------------------------------------------"
 SEP_S		:=	".............................................."
 EXEC		:=	unit_test_libft
 CC		:=	cc
-CFLAGS		:=	-Wall -Wextra -Werror
+#CFLAGS		:=	-Wall -Wextra -Werror
 #CFLAGS		:=	-Wall -Wextra
+CFLAGS		:=	
 CFLAGSADD	:=	-Wconversion -g3 -fsanitize=address
 
 IPATH		:=	.
@@ -22,7 +23,8 @@ INCLUDES	:=	main.h
 
 SRCS		:=	main.c\
 			chartype_is.c\
-			memory.c
+			test_memory.c\
+			test_string.c
 
 OBJS		=	${SRCS:.c=.o}
 
