@@ -6,11 +6,12 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 11:51:25 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 11:59:32 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/16 14:16:39 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
+#include "ft_memory.h"
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
@@ -29,7 +30,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	s = (char *)malloc(sizeof(char) *(len_s1 + len_s2 + 1));
 	if (!s)
 		return (NULL);
-	s = ft_strcpy(s, s1);
-	s = ft_strcpy(&s[len_s1], s2);
+	s = ft_memmove(s, s1, len_s1);
+	ft_memmove(s + len_s1, s2, len_s2);
+	s[len_s1 + len_s2] = '\0';
 	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:05:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 12:23:29 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/16 13:02:49 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,15 @@ char	*ft_strdup(const char *s);
  * @return char* | 0: is not existing, >= 0: pointer of the new string
  */
 char	*ft_strjoin(const char *s1, const char *s2);
+
+/**
+ * @brief Return a pointer of destination string.
+ *
+ * @param char *dst: String to be modified | const char *src: String to be copied
+ * size_t: Length of copy
+ * @return char* | 0: is not existing, >= 0: pointer of the destination string
+ */
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 /**
  * @brief Return a pointer of destination string.
