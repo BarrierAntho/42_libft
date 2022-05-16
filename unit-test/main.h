@@ -9,10 +9,10 @@
 # include <errno.h>
 # include <ctype.h>
 
-# include "../include/ft_libft.h"
-
-# define SEP_S "-----------------------------------------"
+# include "../libft/include/ft_libft.h"
 
 void	chartype_is(int(*f)(int), int *input);
+void	memory_cmp(int(*f)(const void *, const void *, size_t), const void *input1,
+			const void *input2, size_t n);
 
 #endif

@@ -1,5 +1,5 @@
 # libft settings
-FTPATH		:=	..
+FTPATH		:=	../libft
 IFT		:=	include
 FTHEADER	:=	ft_libft.h
 FTNAME		:=	libft.a
@@ -14,14 +14,15 @@ CFLAGS		:=	-Wall -Wextra -Werror
 #CFLAGS		:=	-Wall -Wextra
 CFLAGSADD	:=	-Wconversion -g3 -fsanitize=address
 
-IPATH	:=	.
+IPATH		:=	.
 
 RM		:=	rm -rf
 
 INCLUDES	:=	main.h
 
 SRCS		:=	main.c\
-			chartype_is.c
+			chartype_is.c\
+			memory.c
 
 OBJS		=	${SRCS:.c=.o}
 

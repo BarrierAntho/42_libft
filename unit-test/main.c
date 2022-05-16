@@ -20,6 +20,8 @@ int	main(int argc, char **argv)
 //	int	(*_atoi)(const char *);
 //	long	(*_atol)(const char *);
 //	long long	(*_atoll)(const char *);
+	/***MEMORY***/
+	int	(*_memcmp)(const void *, const void *, size_t);
 	/***PRINTF***/
 	int	(*_dprintf)(int, const char *, ...);	
 	/***STRING***/
@@ -55,6 +57,7 @@ int	main(int argc, char **argv)
 		_ispunct = &ispunct;
 		_isspace = &isspace;
 		_isupper = &isupper;
+		_memcmp = &memcmp;
 		_dprintf = &dprintf;
 	}
 	else if (strcmp("1", argv[1]) >= 0)
@@ -70,6 +73,7 @@ int	main(int argc, char **argv)
 		_ispunct = &ft_ispunct;
 		_isspace = &ft_isspace;
 		_isupper = &ft_isupper;
+		_memcmp = &ft_memcmp;
 		_dprintf = &ft_dprintf;
 	}
 	else
@@ -81,7 +85,8 @@ int	main(int argc, char **argv)
 	/***CHARTYPE***/
 	int	c[] = {'a', '1', '\n', ' ', 'Z', '!', '-', '\\', 0};
 	long long int	i[] = {0, 1, 42, -1, -100, INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, LLONG_MIN, LLONG_MIN};
-	char	*s[] = {"test", "prout"};
+	char	*s1[] = {"test", "prout"};
+	//char	*s2[] = {"test", "prout"};
 
 	printf("isalnum\n");
 	chartype_is(_isalnum, c);
@@ -112,12 +117,18 @@ int	main(int argc, char **argv)
 	printf("%s\n", SEP_P);
 	/******************************/
 
+	/***MEMORY***/
+	printf("memcmp\n");
+	char test[] = "yo hi hey hell bonjour hello";
+	char test2[] = "hello";
+	memory_cmp(_memcmp, (const void *)test, (const void *)test2, sizeof(test));
+
 	/***PRINTF***/
 	printf("dprintf\n");
 	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
-			c[0], s[0], s[0], i[0], i[0], i[0]);
+			c[0], s1[0], s1[0], i[0], i[0], i[0]);
 	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
-			c[3], s[1], s[1], i[5], i[5], i[5]);
+			c[3], s1[1], s1[1], i[5], i[5], i[5]);
 	_dprintf(1, "Test:\nc: %c\ns: %s\np: %p\nu: %u\nx: %x\nX: %X\n%%: %%\n",
 			c[3], NULL, NULL, i[5], i[5], i[5]);
 
