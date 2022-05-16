@@ -91,6 +91,7 @@ STR_SRCS	:=	ft_index.c\
 			ft_strncpy.c\
 			ft_strrchr.c\
 			ft_strrchrset_exclude.c\
+			ft_strstr.c\
 			ft_strtrim.c
 
 SRCS		:=	$(CHAR_SRCS)\

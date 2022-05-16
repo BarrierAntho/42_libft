@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:51:40 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 16:41:02 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/16 17:31:04 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return (ucs1[i] - ucs2[i]);
 		i++;
 	}
-	if ((ucs1[i] && !ucs2[i] && i == n) || (!ucs1[i] && ucs2[i] && i == n))
-		return (ucs1[i] - ucs2[i]);
 	return (0);
 }
