@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 08:45:30 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 11:47:25 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/16 12:24:42 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*prev;
 	struct s_list	*next;
 }			t_list;
@@ -30,7 +30,7 @@ typedef struct s_list
  * @param t_list **lst: List | void *content: Content of the obj
  * @return t_list * | NULL: error, != 0: Obj address
  */
-t_list  *ft_lst_append(t_list **lst, void *content);
+t_list	*ft_lst_append(t_list **lst, void *content);
 
 /**
  * @brief Clear all object from the list
@@ -38,7 +38,7 @@ t_list  *ft_lst_append(t_list **lst, void *content);
  * @param t_list **lst: List
  * @return N/A
  */
-void    ft_lst_clear(t_list **lst);
+void	ft_lst_clear(t_list **lst);
 
 /**
  * @brief Delete the object from the list and return the address of
@@ -47,7 +47,7 @@ void    ft_lst_clear(t_list **lst);
  * @param t_list **lst: List
  * @return t_list * | NULL: error or no next obj, != 0: Next obj address
  */
-t_list  *ft_lst_delbyobj(t_list *obj);
+t_list	*ft_lst_delbyobj(t_list *obj);
 
 /**
  * @brief Return the address of the last object address from the input obj
@@ -55,7 +55,7 @@ t_list  *ft_lst_delbyobj(t_list *obj);
  * @param t_list *lst: List
  * @return t_list * | NULL: error or no obj, != 0: Last obj address
  */
-t_list  *ft_lst_last(t_list *lst);
+t_list	*ft_lst_last(t_list *lst);
 
 /**
  * @brief Init and return the address of the new object address
@@ -63,7 +63,7 @@ t_list  *ft_lst_last(t_list *lst);
  * @param void *content: Content of the object
  * @return t_list * | NULL: error, != 0: New obj address
  */
-t_list  *ft_lst_new(void *content);
+t_list	*ft_lst_new(void *content);
 
 /**
  * @brief Return the size of the list

@@ -154,6 +154,8 @@ norme:
 			norminette $(CONVPATH)
 			@echo $(SEP_P)
 			norminette $(MEMPATH)
+			@echo $(SEP_P)
+			norminette
 
 -include $(DEPS)
 
