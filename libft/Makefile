@@ -61,7 +61,9 @@ LIST_SRCS	:=	ft_lst_append.c\
 			ft_lst_size.c
 
 MEM_SRCS	:=	ft_free_ptrptr_str.c\
-			ft_memcmp.c
+			ft_memcmp.c\
+			ft_memcpy.c\
+			ft_memmove.c
 
 MSG_SRCS	:=	ft_error.c\
 			ft_shell_msg.c\
@@ -80,6 +82,7 @@ STR_SRCS	:=	ft_index.c\
 			ft_strcpy.c\
 			ft_strdup.c\
 			ft_strjoin.c\
+			ft_strlcat.c\
 			ft_strlcpy.c\
 			ft_strlen.c\
 			ft_strlen_addr.c\

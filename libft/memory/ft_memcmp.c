@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:00:18 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 10:22:47 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/16 14:11:50 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (i < (int) n)
 	{
 		if (ucs1[i] != ucs2[i])
-			return ((unsigned char)ucs1[i] - ucs2[i]);
+			return (ucs1[i] - ucs2[i]);
 		i++;
 	}
 	return (0);
