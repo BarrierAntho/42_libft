@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 09:07:14 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 09:17:44 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/17 08:17:24 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ t_list	*ft_lst_append(t_list **lst, void *content)
 	new = ft_lst_new(content);
 	if (!new)
 		return (NULL);
-	last->next = new;
-	new->prev = last;
+	if (last)
+	{
+		last->next = new;
+		new->prev = last;
+	}
 	return (new);
 }
