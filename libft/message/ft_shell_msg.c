@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:05:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/16 12:25:08 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:51:49 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_shell_msg(char *type, char *data)
 	char	*message;
 
 	message = strerror(errno);
-	res = ft_dprintf(2, "%s%s: %s: %s%s\n", RD, type, message, data, NC);
+	res = ft_dprintf(2, "%s: %s: %s\n", type, message, data);
 	if (res <= 0)
 		res = 1;
 	return (res);
