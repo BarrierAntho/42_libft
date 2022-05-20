@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:41:35 by abarrier          #+#    #+#             */
-/*   Updated: 2022/05/19 19:01:13 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/05/20 08:07:43 by abarrier         ###   ########.fr       */
 /*   Updated: 2022/04/11 07:58:28 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -56,7 +56,7 @@ int	ft_error(char *f, char *data, char c, char *msg);
  * the following structure
  * 	Error: message: object
  *
- * @param int : Error number | char *obj: Data of the error
+ * @param int: Error message number | char *obj: Data of the error
  * @return int | >= 1: Total of printed characters
  */
 int	ft_shell_msg(int err, char *data);
